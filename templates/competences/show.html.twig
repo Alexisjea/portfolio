@@ -1,0 +1,44 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Competences{% endblock %}
+
+{% block body %}
+    <h1>Competence  {{ competence.id }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Langage</th>
+                
+                <th>Niveau</th>
+                
+                <th>Type</th>
+                
+                <th>Actions</th>
+
+                
+            </tr>
+            <tr>
+                <td>{{ competence.langage }}</td>
+                <td>{{ competence.niveau }}</td>
+                <td>{{ competence.Type }}</td>
+                <td>
+                    <a href="{{ path('competences_show', {'id': competence.id}) }}">
+                        <i class="fas fa-trash mr-4"></i>
+                    </a>
+                    <a href="{{ path('competences_edit', {'id': competence.id}) }}">
+                        <i class="fas fa-pen"></i>
+                    </a>
+                </td>
+
+
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('competences_index') }}" class="mr-3">back to list</a>
+
+    <a href="{{ path('competences_edit', {'id': competence.id}) }}">edit</a>
+
+    {{ include('competences/delete.html.twig') }}
+{% endblock %}

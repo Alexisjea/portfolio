@@ -1,0 +1,45 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Competences index{% endblock %}
+
+{% block body %}
+    <h1>Competences</h1>
+<a href="{{ path('competences_new') }}" style="font-size:30px">Créer</a>
+     
+<a href="{{ path('competences_new') }}"><i  class="fas fa-plus-circle" style="font-size:30px"></i></a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Langage</th>
+                <th>Niveau</th>
+                <th>Type</th>
+            
+                <th>actions</th>
+               
+            </tr>
+            
+        </thead>
+        <tbody>
+        {% for competence in competences %}
+            <tr>
+                
+                <td>{{ competence.langage }}</td>
+                <td>{{ competence.niveau }}</td>
+                <td>{{ competence.Type }}</td>
+                <td>
+                    <a href="{{ path('competences_show', {'id': competence.id}) }}"><i class="fas fa-trash mr-4"></i></a> 
+                    <a href="{{ path('competences_edit', {'id': competence.id}) }}"><i class="fas fa-pen"></i></a> 
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3" >Aucun résultat trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

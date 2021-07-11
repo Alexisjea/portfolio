@@ -1,0 +1,343 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Portfolio de JEANDENANS Alexis{% endblock %}
+
+{% block content %}
+    <main>
+    <web-particles id="tsparticles" options='{"fps_limit":60,"interactivity":{"detectsOn":"canvas","events":{"onClick":{"enable":true,"mode":"push"},"onHover":{"enable":true,"mode":"repulse"},"resize":true},"modes":{"push":{"particles_nb":4},"repulse":{"distance":200,"duration":0.4}}},"particles":{"color":{"value":"#ffffff"},"links":{"color":"#ffffff","distance":150,"enable":true,"opacity":0.4,"width":1},"move":{"bounce":false,"direction":"none","enable":true,"outMode":"out","random":false,"speed":2,"straight":false},"number":{"density":{"enable":true,"area":800},"value":80},"opacity":{"value":0.5},"shape":{"type":"circle"},"size":{"random":true,"value":5}},"detectRetina":true}'>
+   </web-particles>  
+   <section>
+          <div class="presentation" id="welcome">
+            <div id="bienvenue">
+                
+            </div>
+          </div>
+          <div class="presentation" id="metier">
+              
+              <p id="bloc"> </p>
+          </div>
+          
+          <div class="presentation" id="metier">
+              
+              <p id="bloc1"> </p>
+          </div>
+      
+          
+          <div class="presentation" >
+            <p id="portfolio"></p>
+          </div>
+      </section>
+      <section class="container"  id="sectiontwo ">
+        <div class="row">
+          <div class="presentation" id="mescompetences">
+              <h1 id="about">Voici mon histoire ...</h1>
+
+	{% for about in about %}
+
+
+
+      <div class="component">
+              <ul class="align">
+                <li>
+                  <figure class='book'>
+
+                    <!-- Front -->
+
+                    <ul class='hardcover_front'>
+                      <li>
+                        <div class="coverDesign blue">
+                          <h1 class="nomauteur">JEANDENANS Alexis</h1>
+                          <h3>A propos de moi </h3>
+                        </div>
+                      </li>
+                      <li></li>
+                    </ul>
+
+                    <!-- Pages -->
+
+                    <ul class='page'>
+                      <li></li>
+                      <li>
+<p id="texabout">{{about.texte}}</p>
+
+                      </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+
+                    <!-- Back -->
+
+                    <ul class='hardcover_back'>
+                        <li>
+        
+                        </li>
+                    </ul>
+                    <ul class='book_spine'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    
+                  </figure>
+                </li>
+              </ul>
+            </div>
+        </div>
+
+</div>  
+               
+              </div>  {% endfor %}
+            </section>
+      
+            <section class="container-fluid" id="mesprojets" >
+              <div class="container row">
+                <div class="presentation mt-2" >
+                          <h1 id="mescompetences"> Mes Projets </h1>
+                          <hr class="star-dark">
+                </div>
+                          {% for maquettes in maquettes %}
+                          <div class="card1" style="width: 18rem;">
+                      <img class="card1-img-top" src="{{ asset('image/'~maquettes.apercu) }}" alt="Card image cap" style="width:100%">
+                      <div class="card1-body">
+                        <h5 class="card1-title">{{maquettes.titre}}</h5>
+                        <p class="card1-text">{{maquettes.description}}</p>
+                        
+                      </div>
+                            </div>
+
+      
+      {% endfor %}
+                </div>
+    </div>
+          </section>  
+          <section> 
+                ​  <div class="presentation" >
+                    <h1 id="mescompetences"> Mes compétences </h1>
+                    <hr class="star-dark">
+                  </div>
+               
+                <div class="container1 row">
+                
+                
+              
+                {# <div class="container1 row">
+                  <div class="card cardCompetence">
+                    <h3 class="title">{{competences.langage}} </h3>
+                    <div class="bar">
+                      <div class="emptybar"><h1>{{competences.niveau}}%</h1></div>
+                        <div class="filledbar">
+                        </div>
+                      </div> 
+                    </div> #}
+                  {% for competences in competences %}   <div id="SkillBox">
+
+                     <div class="SkillBar">
+                        <div id="Skill-HTML">   
+                          <span class="Skill-Area ">{{competences.langage}}</span>
+                          <span class="PercentText ">{{competences.niveau}}%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="SkillBar">
+    <div id="Skill-CSS">
+      <span class="Skill-Area ">CSS/CSS3</span>
+      <span class="PercentText ">70%</span>
+    </div>
+  </div>
+
+  <div class="SkillBar">
+    <div id="Skill-jQuery">
+      <span class="Skill-Area ">jQuery</span>
+      <span class="PercentText ">40%</span>
+    </div>
+  </div>
+  
+  <div class="SkillBar">
+    <div id="Skill-JS">
+      <span class="Skill-Area ">Javascript</span>
+      <span class="PercentText ">65%</span>
+    </div>
+  </div>
+  
+  <div class="SkillBar">
+    <div id="Skill-XML">
+      <span class="Skill-Area ">XML </span>
+      <span class="PercentText ">40%</span>
+    </div>
+  </div>
+  
+    <div class="SkillBar">
+    <div id="Skill-C">
+      <span class="Skill-Area ">C</span>
+      <span class="PercentText ">30%</span>
+    </div>
+  </div>
+  
+    <div class="SkillBar">
+    <div id="Skill-JAVA">
+      <span class="Skill-Area ">JAVA </span>
+      <span class="PercentText ">25%</span>
+    </div>
+  </div>
+  
+    <div class="SkillBar">
+    <div id="Skill-PHP">
+      <span class="Skill-Area ">PHP </span>
+      <span class="PercentText ">50%</span>
+    </div>
+  </div>
+  
+    <div class="SkillBar">
+    <div id="Skill-SQL">
+      <span class="Skill-Area ">SQL </span>
+      <span class="PercentText ">80%</span>
+    </div>
+  </div>
+  
+    <div class="SkillBar">
+    <div id="Skill-VBNET">
+      <span class="Skill-Area ">VB.NET</span>
+      <span class="PercentText ">35%</span>
+    </div>
+  </div>
+                     
+                  
+                   {% endfor %}
+                   </div>
+                   
+                                   
+                                                       </div>
+               
+              
+      </section>
+      
+  <section>
+
+    <div class="container"id="parcours">
+    
+      <div class="page-header">
+        
+        <h1 class="presentation">Mon parcours</h1>
+
+        <hr class="star-dark">
+        
+      </div>
+      <ul class="timeline">
+        <li>
+          <div class="timeline-badge">
+            <i class="glyphicon glyphicon glyphicon-user"></i>
+          </div>
+          <div class="timeline-panel">
+            <div>
+              <h4></h4>
+         {% for parcours in parcours %}     
+         <p></p>
+
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-badge warning">
+            <i class="glyphicon glyphicon glyphicon-book"></i>
+          </div>
+          <div class="timeline-panel">
+            <div>
+              
+              <p><h4>{{parcours.contenu}}</h4></p>
+            </div>
+          </div>
+        </li>
+        <li>
+            <div class="timeline-badge">
+              <i class="glyphicon glyphicon-tasks"></i>
+            </div>
+            <div class="timeline-panel">
+              <div>
+                
+                  <h4>{% endfor %}</h4>
+
+                                
+                              
+                              <p></p>
+                              <br>
+                              <h4></h4>
+                              <p> </p>
+                            </div>
+                          </div>
+                        </li>
+        <li>
+          <div class="timeline-badge info">
+            <i class="glyphicon glyphicon-plane"></i>
+          </div>
+          <div class="timeline-panel">
+            <div>
+              <h4></h4>
+              <p></p>
+              <li class="timeline-inverted">
+                <div class="timeline-badge success">
+                  <i class="glyphicon glyphicon-certificate"></i>
+                </div>
+                <div class="timeline-panel">
+                  <div>
+                    <h4>2011</h4>
+<p></p>
+
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </div>
+    </div>
+ 
+</section>
+
+      </main>
+      <footer>
+  <section class="col-sm-12 sectioncontact">
+    {% for message in app.flashes('messages') %}
+    <br>
+    <br>
+    <div class ="presentation alert alert-success" role="alert" id="contactme">
+{{message}}
+</div>
+{% endfor %}
+<h1 class="presentation" id="contacter">  Contacter </h1>
+
+<div class="container d-flex justify-content-center">
+<div class="presentation">
+	<form>
+		<span id="contactn">Vous souhaitez avoir plus d'informations ? N'hesitez pas à me contacter ici
+			<p>
+				<i class="fas fa-hand-point-down"></i>
+			</p>
+		</span>
+
+{{ form_start(contactForm) }}
+
+<div class="container row">
+  <span id="contactn">{{form_row(contactForm.nom)}}</span>
+  <span id="contactn" class="container">{{form_row(contactForm.prenom)}}</span>
+  </div>
+<span id="contactn">
+	{{form_row(contactForm.email)}}
+</span>
+
+<span id="contactn">
+	{{form_row(contactForm.message)}}
+</span>
+<span id="contact_envoyer">{{ form_end(contactForm) }}</span>
+
+  
+</div></div>
+
+
+
+   
+   
+  </section>
+  </footer>
+  {% endblock %}
+
+

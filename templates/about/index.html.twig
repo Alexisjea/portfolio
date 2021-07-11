@@ -1,0 +1,45 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}About {% endblock %}
+
+{% block body %}
+    <h1>About </h1>
+    <a href="{{ path('competences_new') }}" style="font-size:30px">Créer</a>
+
+    <a href="{{ path('competences_new') }}">
+        <i class="fas fa-plus-circle" style="font-size:30px"></i>
+    </a>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Texte</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for about in abouts %}
+            <tr>
+               
+            <td>{{about.texte | slice(0, 200)}} ... 
+                <a href="{{ path('about_show' , {id : about.id})}}">   lire plus</a>
+            </td>
+            <td>
+                    <a href="{{ path('about_show', {'id': about.id}) }}"><i class="fas fa-trash mr-4"></i></a>
+                    <a href="{{ path('about_edit', {'id': about.id}) }}"><i class="fas fa-pen"></i></a>
+            </td>
+            
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3" >Aucun résultat trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+  
+{% endblock %}

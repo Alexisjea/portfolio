@@ -1,0 +1,71 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Maquettes index{% endblock %}
+
+{% block body %}
+    <h1>Mes Projets</h1>
+            <a href="{{ path('maquettes_new') }}" style="font-size:30px">Créer</a>
+
+            <a href="{{ path('maquettes_new') }}">
+
+                <i class="fas fa-plus-circle" style="font-size:30px"></i>
+            </a>
+
+
+<table class="table">
+	<tbody>
+{% for maquettes in maquettes %}
+
+		<tr>
+			<th>Id</th>
+
+			<th>Titre</th>
+
+			<th>Description</th>
+
+			<th>URL</th>
+
+			<th>URL</th>
+			<th></th>
+			<th>Actions</th>
+
+
+		</tr>
+		<tr>
+			<td>{{ maquettes.id }}</td>
+			<td>{{ maquettes.titre }}</td>
+			<td>{{ maquettes.description }}</td>
+			
+			<td>{{ maquettes.apercu }}</td>
+            <td>
+            <img src="{{ asset('/image/'~maquettes.apercu) }}" class="outer-shadow" alt="profile" style="width:200px">
+            </td>
+            
+
+			<td>
+				<button class="bg-danger">
+					<a href="{{ path('maquettes_show', {'id': maquettes.id}) }}">
+						<i class="fas fa-trash mr-4"></i>
+					</a>
+				</button>
+				<button class="bg-info">
+					<a href="{{ path('maquettes_edit', {'id': maquettes.id}) }}">
+					<i class="fas fa-pen"></i>
+					</a>
+				</button>
+			</td>
+
+
+		</tr>
+        {% else %}
+       <tr>
+                <td colspan="3" >Aucun résultat trouvé</td>
+            </tr>
+        {% endfor %}
+
+	</tbody>
+</table>
+
+
+    
+{% endblock %}

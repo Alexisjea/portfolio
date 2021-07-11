@@ -1,0 +1,15 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Editer Competences{% endblock %}
+
+{% block body %}
+    <h1>Editer Compétences </h1>
+
+    {{ include('competences/form.html.twig', {'button_label': 'Update'}) }}
+
+    
+    {{ include('competences/delete.html.twig') }}
+
+    <a href="{{ path('competences_index') }}">Retour à la liste</a>
+
+{% endblock %}

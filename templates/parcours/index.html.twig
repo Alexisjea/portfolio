@@ -1,0 +1,48 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Parcours index{% endblock %}
+
+{% block body %}
+    <h1>Parcours index</h1>
+            <a href="{{ path('parcours_new') }}" style="font-size:30px">Créer</a>
+
+            <a href="{{ path('parcours_new') }}">
+
+                <i class="fas fa-plus-circle" style="font-size:30px"></i>
+            </a>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Contenu</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for parcours in parcours %}
+            <tr>
+                <td>{{ parcours.id }}</td>
+                <td>{{ parcours.contenu }}</td>
+                <td>
+<button class"bg-danger"><a href="{{ path('parcours_show', {'id': parcours.id}) }}">
+	<i class="fas fa-trash mr-4"></i>
+</a></button>
+
+<button class="bg-info"<a href="{{ path('parcours_edit', {'id': parcours.id}) }}">
+	<i class="fas fa-pen"></i>
+</a></button>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3" >Aucun résultat trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   
+{% endblock %}
